@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CountDown to 2019</title>
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+<style>
+html,body{
+    margin: 0;
+    padding: 0;
+    background-image: url("cimages/prev.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+}
+#container{
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    padding: 60px 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2)
+}
+.time{
+    font-size: 100px;
+    line-height: 90px;
+    font-weight: 800;
+    
+}
+.display{
+    font-size: 120px;
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    background-image: url("cimages/Pyrotechnic-display-Dragon-Fireworks.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Libre Baskerville', serif;
+}
+.box{
+    float: left;
+    margin: 0 10px;
+    width: 300px;
+    text-align: center;
+}
+.title{
+    letter-spacing: 4px;
+}
+.head{
+    letter-spacing: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+@media only screen and (max-width:768px){
+   html,body{
+       margin: 0;
+       padding: 0;
+       text-align: center;
+   }
+.display{
+    font-size: 50px;
+    margin-top:80px; 
+}
+.head{
+    font-size: 15px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    text-align: center;
+
+}
+.time{
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: 400
+}
+#container{
+    display: block
+}
+.box{
+    float: left;
+    width: 70px
+}
+.title{
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-top: 5px
+}
+}
+</style>
+</head>
+<body>
+    <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Jan 01, 2019 00:00:00").getTime();
+            var effect = "HAPPY NEW YEAR, WELCOME TO 2019..."
+            
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+                
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+                
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+            // Output the result in an element with id="counter"
+            document.getElementById("counter").innerHTML = '<div class="box time">' + days + '</div><div class="box time">' + hours + '</div><div class="box time">' + minutes + 
+                '</div><div class="box time">' + seconds + '</div>';
+                
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("counter").innerHTML = '<div class="display">' + effect + '</div>';
+            }
+            }, 1000);
+            </script>
+                    <div id="container">
+                        <div class="head">COUNTDOWN TO 2019</div>
+                        <div id="counter"></div>
+                        <div class="box title">DAYS</div>
+                        <div class="box title">HOURS</div>
+                        <div class="box title">MINUTES</div>
+                        <div class="box title">SECONDS</div>
+                    </div>
+</body>
+</html>
